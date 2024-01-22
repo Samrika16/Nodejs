@@ -1,0 +1,17 @@
+version: '3'
+services:
+  my-ecs-service:
+    image: 533266997348.dkr.ecr.ap-south-1.amazonaws.com/my-ecr-registry:latest
+    cpu: 1024
+    memory: 2048
+    ports:
+      - 3000:3000
+    environment:
+      - NODE_ENV=production
+    logging:
+      driver: awslogs
+      options:
+        awslogs-group: /ecs/my-ecs-service
+        awslogs-region: ap-south-1
+        awslogs-stream-prefix: ecs
+

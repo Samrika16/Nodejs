@@ -1,0 +1,14 @@
+service: my-lambda-service
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: ap-south-1
+
+functions:
+  myLambdaFunction:
+    handler: index.handler
+    events:
+      - http:
+          path: /
+          method: ANY
+          cors: true

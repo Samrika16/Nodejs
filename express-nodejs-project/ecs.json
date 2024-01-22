@@ -1,0 +1,29 @@
+{
+  "family": "my-ecs-task",
+  "containerDefinitions": [
+    {
+      "name": "my-container",
+      "image": "533266997348.dkr.ecr.ap-south-1.amazonaws.com/my-ecr-registry:latest",
+      "essential": true,
+      "portMappings": [
+        {
+          "containerPort": 3000,          "hostPort": 3000
+        }
+      ],
+      "environment": [
+        {
+          "name": "KEY",
+          "value": "VALUE"
+        }
+      ]
+    }
+  ],
+  "requiresCompatibilities": [
+    "FARGATE"
+  ],
+
+  "networkMode": "awsvpc",
+  "cpu": "1024",
+  "memory": "2048",
+  "executionRoleArn": "arn:aws:iam::533266997348:role/ecs-task-role"
+}
